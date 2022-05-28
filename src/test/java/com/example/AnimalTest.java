@@ -16,13 +16,15 @@ public class AnimalTest {
     public String family;
     @Parameterized.Parameter(1)
     public List<String> food;
-    @Parameterized.Parameters
+
+    @Parameterized.Parameters(name = "Test Data: {0} {1}")
     public static Object[] getFamilyData() {
         return new Object[][] {
                 { "Травоядное", List.of("Трава", "Различные растения")},
                 { "Хищник", List.of("Животные", "Птицы", "Рыба")},
         };
     }
+
     @Before
     public void setup(){
         animal = new Animal();
@@ -42,5 +44,4 @@ public class AnimalTest {
     public void familyException() throws Exception {
         animal.getFood("asd");
     }
-
 }

@@ -33,12 +33,9 @@ public class LionTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Test Data: {0} {1}")
     public static Object[] getLionData() {
-        return new Object[][] {
-                { "Самец", true},
-                { "Самка", false},
-        };
+        return new Object[][]{{"Самец", true}, {"Самка", false},};
     }
 
     @Test
@@ -57,7 +54,7 @@ public class LionTest {
         lion = new Lion("Самка", feline);
         List<String> food = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.getFood("Хищник")).thenReturn(food);
-       List<String> actualFood = lion.getFood();
+        List<String> actualFood = lion.getFood();
         Assert.assertEquals(food, actualFood);
     }
 
