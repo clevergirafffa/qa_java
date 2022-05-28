@@ -41,7 +41,7 @@ public class LionTest {
     @Test
     public void ifLionHasMane() throws Exception {
         lion = new Lion(gender, feline);
-        Assert.assertEquals(expectedGender, lion.doesHaveMane());
+        Assert.assertEquals("Lion's gender isn't matching", expectedGender, lion.doesHaveMane());
     }
 
     @Test(expected = Exception.class)
@@ -55,13 +55,13 @@ public class LionTest {
         List<String> food = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.getFood("Хищник")).thenReturn(food);
         List<String> actualFood = lion.getFood();
-        Assert.assertEquals(food, actualFood);
+        Assert.assertEquals("Lion's food isn't matching", food, actualFood);
     }
 
     @Test
     public void getKittens() throws Exception {
         lion = new Lion("Самка", feline);
         Mockito.when(feline.getKittens()).thenReturn(1);
-        Assert.assertEquals(1, lion.getKittens());
+        Assert.assertEquals("Amount of kittens differs from 1", 1, lion.getKittens());
     }
 }

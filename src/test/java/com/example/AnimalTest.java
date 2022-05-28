@@ -19,25 +19,25 @@ public class AnimalTest {
 
     @Parameterized.Parameters(name = "Test Data: {0} {1}")
     public static Object[] getFamilyData() {
-        return new Object[][] {
-                { "Травоядное", List.of("Трава", "Различные растения")},
-                { "Хищник", List.of("Животные", "Птицы", "Рыба")},
+        return new Object[][]{
+                {"Травоядное", List.of("Трава", "Различные растения")},
+                {"Хищник", List.of("Животные", "Птицы", "Рыба")},
         };
     }
 
     @Before
-    public void setup(){
+    public void setup() {
         animal = new Animal();
     }
 
     @Test
     public void getFoodPerFamily() throws Exception {
-        Assert.assertEquals(food, animal.getFood(family));
+        Assert.assertEquals("Animal's food isn't matching", food, animal.getFood(family));
     }
 
     @Test
     public void getFamily() {
-        Assert.assertEquals("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи", animal.getFamily());
+        Assert.assertEquals("Animal's family isn't matching", "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи", animal.getFamily());
     }
 
     @Test(expected = Exception.class)

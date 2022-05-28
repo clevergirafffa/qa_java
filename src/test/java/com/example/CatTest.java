@@ -18,13 +18,13 @@ public class CatTest {
 
     @Test
     public void getSound() {
-        Assert.assertEquals("Мяу", cat.getSound());
+        Assert.assertEquals("Cat's sound isn't matching", "Мяу", cat.getSound());
     }
 
     @Test
     public void getFood() throws Exception {
         List<String> food = List.of("Животные", "Птицы", "Рыба");
         List<String> actualFood = cat.getFood();
-        Assert.assertEquals(food, actualFood);
+        Assert.assertEquals("Cat's food isn't matching", food, actualFood);
     }
 }

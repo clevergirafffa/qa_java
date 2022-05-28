@@ -9,16 +9,16 @@ public class FelineTest {
 
     @Test
     public void getFamily() {
-        Assert.assertEquals("Кошачьи", feline.getFamily());
+        Assert.assertEquals("Feline family isn't matching", "Кошачьи", feline.getFamily());
     }
 
     @Test
     public void getKittensNoArguments() {
-        Assert.assertEquals(1, feline.getKittens());
+        Assert.assertEquals("Feline's amount of kittens differs from 1", 1, feline.getKittens());
     }
 
     @Test
     public void getKittensWithArguments() {
-        Assert.assertEquals(6, feline.getKittens(6));
+        Assert.assertEquals("Feline's amount of kittens isn't matching", 6, feline.getKittens(6));
     }
 }
