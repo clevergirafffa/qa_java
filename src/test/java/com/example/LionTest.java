@@ -23,13 +23,10 @@ public class LionTest {
     @Mock
     Feline feline;
 
-    private final String gender;
-    private final boolean expectedGender;
-
-    public LionTest(String gender, boolean expectedGender) {
-        this.gender = gender;
-        this.expectedGender = expectedGender;
-    }
+    @Parameterized.Parameter(0)
+    public String gender;
+    @Parameterized.Parameter(1)
+    public boolean expectedGender;
 
     @Before
     public void init() {

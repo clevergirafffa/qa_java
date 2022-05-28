@@ -12,13 +12,10 @@ import java.util.List;
 public class AnimalTest {
     private Animal animal;
 
-    private final String family;
-    private final List<String> food;
-
-    public AnimalTest(String family, List<String> food) {
-        this.family = family;
-        this.food = food;
-    }
+    @Parameterized.Parameter(0)
+    public String family;
+    @Parameterized.Parameter(1)
+    public List<String> food;
     @Parameterized.Parameters
     public static Object[] getFamilyData() {
         return new Object[][] {
