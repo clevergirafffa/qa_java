@@ -15,7 +15,7 @@ import org.mockito.junit.MockitoRule;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class LionParametrizedTest {
+public class LionTest {
     Lion lion;
 
     @Rule
@@ -26,7 +26,7 @@ public class LionParametrizedTest {
     private final String gender;
     private final boolean expectedGender;
 
-    public LionParametrizedTest(String gender, boolean expectedGender) {
+    public LionTest(String gender, boolean expectedGender) {
         this.gender = gender;
         this.expectedGender = expectedGender;
     }
