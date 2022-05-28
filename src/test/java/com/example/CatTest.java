@@ -2,14 +2,25 @@ package com.example;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.MockitoRule;
 
 import java.util.List;
 
-
 public class CatTest {
     private Cat cat;
-    private Feline feline = new Feline();
+    @Mock
+    private Feline feline;
+
+    @Rule
+    public MockitoRule mockitoRule = MockitoJUnit.rule();
 
     @Before
     public void setup() {
@@ -24,6 +35,7 @@ public class CatTest {
     @Test
     public void getFood() throws Exception {
         List<String> food = List.of("Животные", "Птицы", "Рыба");
+        Mockito.when(feline.eatMeat()).thenReturn(food);
         List<String> actualFood = cat.getFood();
         Assert.assertEquals("Cat's food isn't matching", food, actualFood);
     }

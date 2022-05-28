@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="com.example.AnimalTest" time="0.004" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="com.example.AnimalTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -62,10 +62,10 @@
     <property name="java.vendor.version" value="Corretto-11.0.15.9.1"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.example.AnimalTest" name="getFamily[Test Data: Травоядное [Трава, Различные растения]]" time="0.002"/>
-  <testcase classname="com.example.AnimalTest" name="familyException[Test Data: Травоядное [Трава, Различные растения]]" time="0"/>
+  <testcase classname="com.example.AnimalTest" name="getFamily[Test Data: Травоядное [Трава, Различные растения]]" time="0.001"/>
+  <testcase classname="com.example.AnimalTest" name="familyException[Test Data: Травоядное [Трава, Различные растения]]" time="0.001"/>
   <testcase classname="com.example.AnimalTest" name="getFoodPerFamily[Test Data: Травоядное [Трава, Различные растения]]" time="0"/>
   <testcase classname="com.example.AnimalTest" name="getFamily[Test Data: Хищник [Животные, Птицы, Рыба]]" time="0.001"/>
   <testcase classname="com.example.AnimalTest" name="familyException[Test Data: Хищник [Животные, Птицы, Рыба]]" time="0"/>
-  <testcase classname="com.example.AnimalTest" name="getFoodPerFamily[Test Data: Хищник [Животные, Птицы, Рыба]]" time="0.001"/>
+  <testcase classname="com.example.AnimalTest" name="getFoodPerFamily[Test Data: Хищник [Животные, Птицы, Рыба]]" time="0"/>
 </testsuite>
