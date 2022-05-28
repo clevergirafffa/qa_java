@@ -15,7 +15,7 @@ import org.mockito.junit.MockitoRule;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class LionParametrizedTest {
+public class LionTest {
     Lion lion;
 
     @Rule
@@ -23,31 +23,25 @@ public class LionParametrizedTest {
     @Mock
     Feline feline;
 
-    private final String gender;
-    private final boolean expectedGender;
-
-    public LionParametrizedTest(String gender, boolean expectedGender) {
-        this.gender = gender;
-        this.expectedGender = expectedGender;
-    }
+    @Parameterized.Parameter(0)
+    public String gender;
+    @Parameterized.Parameter(1)
+    public boolean expectedGender;
 
     @Before
     public void init() {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Test Data: {0} {1}")
     public static Object[] getLionData() {
-        return new Object[][] {
-                { "Самец", true},
-                { "Самка", false},
-        };
+        return new Object[][]{{"Самец", true}, {"Самка", false},};
     }
 
     @Test
     public void ifLionHasMane() throws Exception {
         lion = new Lion(gender, feline);
-        Assert.assertEquals(expectedGender, lion.doesHaveMane());
+        Assert.assertEquals("Lion's gender isn't matching", expectedGender, lion.doesHaveMane());
     }
 
     @Test(expected = Exception.class)
@@ -60,14 +54,14 @@ public class LionParametrizedTest {
         lion = new Lion("Самка", feline);
         List<String> food = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.getFood("Хищник")).thenReturn(food);
-       List<String> actualFood = lion.getFood();
-        Assert.assertEquals(food, actualFood);
+        List<String> actualFood = lion.getFood();
+        Assert.assertEquals("Lion's food isn't matching", food, actualFood);
     }
 
     @Test
     public void getKittens() throws Exception {
         lion = new Lion("Самка", feline);
         Mockito.when(feline.getKittens()).thenReturn(1);
-        Assert.assertEquals(1, lion.getKittens());
+        Assert.assertEquals("Amount of kittens differs from 1", 1, lion.getKittens());
     }
 }
